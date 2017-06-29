@@ -1,9 +1,21 @@
 set(PORTHOLE_SRC
         main.cpp
+
+        detection/face_detector.cpp
+
+        display/porthole.cpp
+        display/view.cpp
         )
 
 set(PORTHOLE_HDR
 
+        detection/face_detector.h
+
+        display/application.h
+        display/porthole.h
+        display/view.h
+
+        misc/shader.h
         )
 
 add_executable(porthole
@@ -13,15 +25,25 @@ add_executable(porthole
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_calib3d opencv_video opencv_features2d opencv_ml opencv_highgui opencv_objdetect opencv_contrib opencv_legacy opencv_gpu)
 
-include_directories(${OpenCV_INCLUDE_DIR})
+include_directories(
+        ${OpenCV_INCLUDE_DIR}
+        ${GLEW_INCLUDE_DIRS}
+        ${GLFW_INCLUDE_DIRS}
+        ${FREETYPE_INCLUDE_DIRS}
+)
+
+link_directories(
+        ${GLEW_LIBRARY_DIRS}
+        ${GLFW_LIBRARY_DIRS}
+        ${FREETYPE_LIBRARY_DIRS}
+)
 
 target_link_libraries(porthole
+        glew ${GLEW_LIBRARIES}
+        glfw ${GLFW_LIBRARIES}
         ${OPENGL_LIBRARIES}
         ${OpenCV_LIBS}
         )
-
-message("${OpenCV_LIBRARIES}")
-message("${OpenCV_LINK_DIRECTORIES}")
 
 #-------------------------------------------------------------------------------
 # Platform-specific configurations for target
