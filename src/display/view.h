@@ -8,6 +8,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "application.h"
+#include <unistd.h>
 
 class View {
 public:

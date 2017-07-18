@@ -19,11 +19,12 @@ public:
     void load_cascade(std::string path);
     void process_frame();
     cv::Mat &get_frame();
-    void get_last_bbox(int *x, int *y, int *w, int *h);
+    cv::Rect get_last_bbox();
 
 private:
     cv::VideoCapture _capture;
     cv::Mat _frame;
+    cv::Rect _last_face;
 
     cv::CascadeClassifier face_cascade;
 

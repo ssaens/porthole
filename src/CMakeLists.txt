@@ -5,6 +5,9 @@ set(PORTHOLE_SRC
 
         display/porthole.cpp
         display/view.cpp
+
+        geometry/icosohedron.h
+        geometry/mesh.h
         )
 
 set(PORTHOLE_HDR
@@ -15,6 +18,9 @@ set(PORTHOLE_HDR
         display/porthole.h
         display/view.h
 
+        geometry/mesh.cpp
+
+        misc/camera.h
         misc/shader.h
         )
 
